@@ -1,0 +1,36 @@
+.navigation {
+  /* display: flex;
+  justify-content: space-between; */
+  background-color: rgb(119, 193, 187);
+}
+
+.navigationList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+
+.navigationItem {
+  /* padding: 14px 20px 20px 20px; */
+}
+
+.link {
+  display: inline-block;
+  border-radius: 5px;
+  padding: 15px 35px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px;
+  color: white;
+  background: #55acee;
+  box-shadow: 0 5px 0 #3c93d5;
+  transition: 0.3s;
+}
+
+.activeLink {
+  composes: link;
+  color: #d12d5e;
+}
