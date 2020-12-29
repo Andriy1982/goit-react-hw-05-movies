@@ -1,4 +1,4 @@
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Container from '../Container/';
 import HomePage from '../../pages/HomePage';
 import MoviesPage from '../../pages/MoviesPage';
@@ -14,11 +14,11 @@ function App() {
           <HomePage />
         </Route>
 
-        <Route exact path="/:moviesId">
+        <Route path="/movies/:movieId">
           <MoviesDetailsPage />
         </Route>
 
-        <Route exact path="/movies">
+        <Route path="/movies">
           <MoviesPage />
         </Route>
 

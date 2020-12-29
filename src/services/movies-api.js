@@ -20,7 +20,36 @@ const getMovies = async () => {
   }
 };
 
-export default getMovies;
+const getMoviesById = async bookId => {
+  try {
+    const respons = await axios.get(`movie/${bookId}`);
+    return respons.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getMoviesByCast = async bookId => {
+  try {
+    const respons = await axios.get(`movie/${bookId}/credits`);
+    return respons.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getSearchMovies = async searchMovie => {
+  try {
+    const respons = await axios.get(`search/movie?query=${searchMovie}`);
+    return respons.data.results;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const API = { getMovies, getMoviesById, getMoviesByCast, getSearchMovies };
+
+export default API;
 
 // async function fetchWithErrorHandling(url = '', config = {}) {
 //   const response = await fetch(url, config);
