@@ -38,6 +38,15 @@ const getMoviesByCast = async bookId => {
   }
 };
 
+const getMoviesByReviews = async bookId => {
+  try {
+    const respons = await axios.get(`movie/${bookId}/reviews`);
+    return respons.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const getSearchMovies = async searchMovie => {
   try {
     const respons = await axios.get(`search/movie?query=${searchMovie}`);
@@ -47,7 +56,13 @@ const getSearchMovies = async searchMovie => {
   }
 };
 
-const API = { getMovies, getMoviesById, getMoviesByCast, getSearchMovies };
+const API = {
+  getMovies,
+  getMoviesById,
+  getMoviesByCast,
+  getSearchMovies,
+  getMoviesByReviews,
+};
 
 export default API;
 

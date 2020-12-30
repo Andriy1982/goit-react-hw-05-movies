@@ -4,16 +4,17 @@ import API from '../services/movies-api';
 
 export default function MoviesDetailsPage(props) {
   const { movieId } = useParams();
-  const { url } = useRouteMatch();
+  const { url, path } = useRouteMatch();
   const [movie, setMovie] = useState(null);
 
-  console.log(useParams());
-  console.log(movieId);
-  console.log(url);
+  //   console.log(useRouteMatch());
+  //   console.log(movieId);
+  //   console.log(url);
 
   useEffect(() => {
     API.getMoviesById(movieId).then(setMovie);
-    API.getMoviesByCast(movieId).then(data => console.log(data.cast));
+    // API.getMoviesByCast(movieId).then(data => console.log(data.cast));
+    // API.getMoviesByReviews(movieId).then(data => console.log(data));
   }, [movieId]);
 
   return (
@@ -33,14 +34,17 @@ export default function MoviesDetailsPage(props) {
               <NavLink to={`${url}/cast`}>cast</NavLink>
             </li>
             <li>
-              <NavLink to={`${url}/${movieId}/reviews`}>reviews</NavLink>
+              <NavLink to={`${url}/reviews`}>reviews</NavLink>
             </li>
           </ul>
         </>
       )}
       <hr />
-      <Route path={`${url}/cast`}>
+      <Route path={`${path}/cast`}>
         <h1>Cast</h1>
+      </Route>
+      <Route path={`${path}/reviews`}>
+        <h1>reviews</h1>
       </Route>
     </>
   );

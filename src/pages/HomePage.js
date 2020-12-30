@@ -6,7 +6,7 @@ export default function HomePage(props) {
   const { url } = useRouteMatch();
   const [movies, setMovies] = useState(null);
 
-  console.log(useRouteMatch());
+  //   console.log(useRouteMatch());
 
   useEffect(() => {
     API.getMovies().then(setMovies);
