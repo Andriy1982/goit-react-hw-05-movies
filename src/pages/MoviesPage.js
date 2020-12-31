@@ -9,6 +9,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import API from '../services/movies-api';
+import ListMovie from '../components/ListMovie';
 
 // const parseUrl = () => {
 //     return new URLSearchParams(location.search).get('query') ?? [];
@@ -53,21 +54,23 @@ export default function MoviesPage(props) {
   return (
     <>
       <SearchForm onSubmitForm={hendleSubmitForm} />
-      {movies &&
-        movies.map(movie => (
-          <li key={movie.id}>
-            {/* <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-              alt={movie.name}
-            /> */}
-            <Link to={`${url}/${movie.id}`}>
-              <img
-                src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-                alt={movie.name}
-              />
-            </Link>
-          </li>
-        ))}
+      {
+        movies && <ListMovie movies={movies} />
+        // movies.map(movie => (
+        //   <li key={movie.id}>
+        //     {/* <img
+        //       src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+        //       alt={movie.name}
+        //     /> */}
+        //     <Link to={`${url}/${movie.id}`}>
+        //       <img
+        //         src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+        //         alt={movie.name}
+        //       />
+        //     </Link>
+        //   </li>
+        // ))
+      }
     </>
   );
 }

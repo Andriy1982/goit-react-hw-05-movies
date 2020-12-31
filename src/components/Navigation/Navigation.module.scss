@@ -1,7 +1,9 @@
+@import '../../styles/variable.scss';
+
 .navigation {
   /* display: flex;
   justify-content: space-between; */
-  background-color: rgb(119, 193, 187);
+  background-color: $font-color;
 }
 
 .navigationList {
