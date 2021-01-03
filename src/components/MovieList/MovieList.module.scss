@@ -10,13 +10,18 @@
 }
 
 .movieListItem {
+  margin: 5px;
   position: relative;
   width: 300px;
   height: 156px;
   background-color: red;
   border-radius: 1rem;
   cursor: pointer;
-  transition: color 0.2s linear, transform 0.2s linear;
+  transition: transform 0.2s linear;
+
+  &:hover {
+    transform: scale(1.025);
+  }
 }
 
 .movieListImg {

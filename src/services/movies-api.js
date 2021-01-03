@@ -22,8 +22,8 @@ const getMovies = async () => {
 
 const getMoviesById = async bookId => {
   try {
-    const respons = await axios.get(`movie/${bookId}`);
-    return respons.data;
+    const response = await axios.get(`movie/${bookId}`);
+    return response.data;
   } catch (error) {
     console.log(error);
   }
@@ -31,8 +31,8 @@ const getMoviesById = async bookId => {
 
 const getMoviesByCast = async bookId => {
   try {
-    const respons = await axios.get(`movie/${bookId}/credits`);
-    return respons.data;
+    const response = await axios.get(`movie/${bookId}/credits`);
+    return response.data.cast;
   } catch (error) {
     console.log(error);
   }
@@ -40,8 +40,8 @@ const getMoviesByCast = async bookId => {
 
 const getMoviesByReviews = async bookId => {
   try {
-    const respons = await axios.get(`movie/${bookId}/reviews`);
-    return respons.data;
+    const response = await axios.get(`movie/${bookId}/reviews`);
+    return response.data.results;
   } catch (error) {
     console.log(error);
   }
@@ -49,8 +49,8 @@ const getMoviesByReviews = async bookId => {
 
 const getSearchMovies = async searchMovie => {
   try {
-    const respons = await axios.get(`search/movie?query=${searchMovie}`);
-    return respons.data.results;
+    const response = await axios.get(`search/movie?query=${searchMovie}`);
+    return response.data.results;
   } catch (error) {
     console.log(error);
   }

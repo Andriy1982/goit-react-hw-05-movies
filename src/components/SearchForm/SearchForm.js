@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SearchForm.css';
+import './SearchForm.scss';
 
 function SearchForm({ onSubmitForm }) {
   const [searchMovie, setSearchMovie] = useState('');
