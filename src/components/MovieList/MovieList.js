@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 
 import styles from './MovieList.module.scss';
 import photo from '../../images/unnamed.png';
 
-export default function ListMovie({ movies }) {
+export default function MovieList({ movies }) {
+  const { url } = useRouteMatch();
+  console.log(url);
   return (
     <ul className={styles.movieList}>
       {movies.map(movie => (

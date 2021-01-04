@@ -18,7 +18,7 @@ export default function Navigation(props) {
         </li>
         <li className={styles.navigationItem}>
           <NavLink
-            exact
+            // exact
             to="/movies"
             className={styles.link}
             activeClassName={styles.activeLink}

@@ -7,13 +7,15 @@
 .movieDetailsDescription {
   margin-bottom: 10px;
 }
+
 .list {
   display: flex;
   // justify-content: start;
   align-items: center;
-  padding: 10px;
+  padding: 10px 10px 20px;
   margin: 0px;
   list-style: none;
+  border-bottom: 2px solid gray;
 }
 
 .navigationItem {
