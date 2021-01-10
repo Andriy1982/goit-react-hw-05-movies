@@ -1,10 +1,5 @@
-@import '../../styles/variable.scss';
-
 .navigation {
-  margin-bottom: 20px;
-  /* display: flex;
-  justify-content: space-between; */
-  background-color: $font-color;
+  background-color: rgb(55, 44, 72);
 }
 
 .navigationList {
@@ -14,10 +9,6 @@
   padding: 0px;
   margin: 0px;
   list-style: none;
-}
-
-.navigationItem {
-  /* padding: 14px 20px 20px 20px; */
 }
 
 .link {

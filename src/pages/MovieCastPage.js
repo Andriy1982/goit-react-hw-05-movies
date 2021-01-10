@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import API from '../services/movies-api';
 import Spinner from '../components/Spinner';
-import MovieDetails from '../components/MovieDetails';
+import Cast from '../components/Cast';
 
-export default function MoviesDetailsPage(props) {
+export default function MovieCastPage() {
+  const [cast, setCast] = useState('');
   const { movieId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
-  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     setIsLoading(true);
-    API.getMoviesById(movieId).then(data => {
-      setMovie(data);
+    API.getMovieCast(movieId).then(data => {
+      setCast(data);
       setIsLoading(false);
     });
   }, [movieId]);
@@ -20,7 +20,7 @@ export default function MoviesDetailsPage(props) {
   return (
     <>
       {isLoading && <Spinner />}
-      {movie && <MovieDetails movie={movie} />}
+      {cast && <Cast cast={cast} />}
     </>
   );
 }

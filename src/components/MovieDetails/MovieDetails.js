@@ -1,9 +1,19 @@
-import React from 'react';
+import { React, lazy, Suspense } from 'react';
 import { NavLink, useRouteMatch, Route } from 'react-router-dom';
 import styles from './MovieDetails.module.scss';
-import Cast from '../Cast';
-import Reviews from '../Reviews';
+import Spinner from '../Spinner';
 import Photo from '../../images/unnamed.png';
+
+const MovieCastPage = lazy(() =>
+  import(
+    '../../pages/MovieCastPage.js' /* webpackChunkName: "MovieCastPage" */
+  ),
+);
+const MoviesReviewsPage = lazy(() =>
+  import(
+    '../../pages/MovieReviewsPage.js' /* webpackChunkName: "MovieReviewsPage" */
+  ),
+);
 
 export default function MovieDetails({ movie }) {
   const { url, path } = useRouteMatch();
@@ -19,10 +29,8 @@ export default function MovieDetails({ movie }) {
         alt={movie.name}
         className={styles.movieDetailsImg}
       />
-
       <h2 className={styles.movieDetailsName}> {movie.original_title}</h2>
       <p className={styles.movieDetailsDescription}>{movie.overview}</p>
-
       <ul className={styles.list}>
         <li className={styles.navigationItem}>
           <NavLink
@@ -43,12 +51,14 @@ export default function MovieDetails({ movie }) {
           </NavLink>
         </li>
       </ul>
-      <Route path={`${path}/cast`}>
-        <Cast />
-      </Route>
-      <Route path={`${path}/reviews`}>
-        <Reviews />
-      </Route>
+      <Suspense fallback={<Spinner />}>
+        <Route path={`${path}/cast`}>
+          <MovieCastPage />
+        </Route>
+        <Route path={`${path}/reviews`}>
+          <MoviesReviewsPage />
+        </Route>
+      </Suspense>
     </>
   );
 }

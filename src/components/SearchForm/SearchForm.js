@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { store } from 'react-notifications-component';
+import notification from '../Notification';
 import './SearchForm.scss';
 
 function SearchForm({ onSubmitForm }) {
@@ -11,7 +13,11 @@ function SearchForm({ onSubmitForm }) {
   const handleSubmit = e => {
     e.preventDefault();
     if (searchMovie.trim() === '') {
-      alert('Enter a name for the movie');
+      store.addNotification({
+        ...notification,
+        container: 'bottom-center',
+        message: 'Enter a name for the movie',
+      });
       return;
     }
     onSubmitForm(searchMovie);

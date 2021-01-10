@@ -10,7 +10,6 @@
 
 .list {
   display: flex;
-  // justify-content: start;
   align-items: center;
   padding: 10px 10px 20px;
   margin: 0px;
@@ -22,7 +21,6 @@
   &:first-child {
     margin-right: 10px;
   }
-  /* padding: 14px 20px 20px 20px; */
 }
 
 .link {
@@ -31,7 +29,6 @@
   padding: 5px 20px;
   font-size: 22px;
   text-decoration: none;
-  // margin: 20px;
   color: white;
   background: #55acee;
   box-shadow: 0 5px 0 #3c93d5;
